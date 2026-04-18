@@ -1,0 +1,292 @@
+:root {
+    --primary-blue: #2c3e50;
+    --light-background: #f4f6f9;
+    --text-dark: #2c3e50;
+    --text-white: #ffffff;
+    --service-btn-bg: #e0e6ed;
+
+    --light-bg: #f5f8ff;
+    --card-bg: #ffffff;
+    --option-bg: #ffffff;
+    --option-border: #f0f0f0;
+    --text-color: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+}
+
+
+body.home-page {
+    background-color: var(--light-background);
+    padding-bottom: 70px;
+}
+
+.app-container {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.header-icons span {
+    font-size: 24px;
+    margin-left: 15px;
+    color: var(--text-dark);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 5px;
+}
+
+.logo-subtext {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.logo-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.main-content {
+    padding: 0 20px 20px 20px;
+}
+
+.welcome-heading {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-top: 20px;
+    margin-right: 15px;
+}
+
+.welcome-card {
+    background-color: var(--primary-blue);
+    color: var(--text-white);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    position: relative;
+    width: 90%;
+    min-height: 150px;
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.3);
+}
+
+.welcome-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.welcome-card p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    display: flex;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.dots span:nth-child(2) {
+    background-color: var(--text-white);
+}
+
+.services {
+    margin-top: 40px;
+    padding-right: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.service-btn {
+    width: 150px;
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    background-color: var(--service-btn-bg);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+.service-btn:hover {
+    background-color: #d1d8e0;
+}
+
+.add-service-btn {
+    background: none;
+    border: 2px solid var(--text-dark);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    color: var(--text-dark);
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-start;
+    margin-right: 150px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.nav-item span.material-icons {
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: var(--text-white);
+}
+
+.nav-item:nth-child(4) span.material-icons {
+    background-color: #ffffff;
+    color: var(--primary-blue);
+    padding: 5px;
+    border-radius: 50%;
+    margin-bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item:nth-child(4) .nav-text {
+    margin-top: 5px;
+}
+
+/* =========================
+   🔥 التعديل الوحيد: الطوارئ
+========================= */
+
+body.emergency-page {
+    background-color: var(--light-background);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+/* كارد الطوارئ */
+body.emergency-page .card {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* عنوان الطوارئ */
+body.emergency-page .main-title {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+/* أزرار الطوارئ */
+body.emergency-page .option-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+body.emergency-page .option-btn:hover {
+    border-color: var(--primary-blue);
+    transform: scale(1.02);
+}

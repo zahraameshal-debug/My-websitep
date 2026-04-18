@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الإعدادات</title>
+
+<style>
+:root {
+    --bg-page: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary-blue: #2c3e50;
+    --text-color: #2c3e50;
+    --sub-text: #666;
+    --border-line: #eee;
+}
+
+.dark-mode {
+    --bg-page: #121212;
+    --card-bg: #1e1e1e;
+    --primary-blue: #5c6bc0;
+    --text-color: #ffffff;
+    --sub-text: #bbb;
+    --border-line: #333;
+}
+
+body {
+    font-family: Arial;
+    background-color: var(--bg-page);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+    transition: 0.3s;
+}
+
+
+.container {
+    background-color: var(--card-bg);
+    width: 90%;
+    max-width: 380px;
+    border-radius: 25px;
+    padding: 25px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+
+
+.back-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-blue);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+
+.badge-header {
+    background-color: var(--primary-blue);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 25px;
+    border-radius: 15px;
+    margin-top: 35px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.section {
+    border-top: 1px solid var(--border-line);
+    padding: 18px 0;
+    text-align: right;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.change-btn {
+    color: var(--primary-blue);
+    border: 1.5px solid var(--primary-blue);
+    padding: 4px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+#class-input {
+    display: none;
+    width: 70px;
+    text-align: center;
+}
+
+
+.theme-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.theme-box {
+    cursor: pointer;
+    text-align: center;
+}
+
+.preview-box {
+    width: 65px;
+    height: 90px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+}
+
+.active-theme .preview-box {
+    border-color: var(--primary-blue);
+}
+
+
+.history-list {
+    font-size: 13px;
+    color: var(--sub-text);
+}
+
+.history-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    
+    <button class="back-btn" onclick="location.href='1.html'">
+        رجوع
+    </button>
+
+    
+    <div class="badge-header">الإعدادات</div>
+
+    <p style="color: var(--primary-blue); opacity: 0.7;">
+        إعدادات التطبيق
+    </p>
+
+    
+    <div class="section">
+        <div class="row">
+            <div class="badge-header" style="font-size:14px;">
+                <span>اسم الفصل:</span>
+                <span id="class-display">3/1</span>
+                <input type="text" id="class-input">
+            </div>
+
+            <span class="change-btn" onclick="toggleEdit()" id="action-btn">
+                تغيير
+            </span>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <div class="badge-header">المظهر</div>
+
+        <div class="theme-flex">
+            <div class="theme-box active-theme" id="light-opt" onclick="changeTheme('light')">
+                <div class="preview-box" style="background:#fff;"></div>
+                <div>فاتح</div>
+            </div>
+
+            <div class="theme-box" id="dark-opt" onclick="changeTheme('dark')">
+                <div class="preview-box" style="background:#222;"></div>
+                <div>داكن</div>
+            </div>
+        </div>
+    </div>
+
+     
+    <div class="section">
+        <div class="badge-header">المواعيد السابقة</div>
+
+        <div class="history-list">
+            <div class="history-row">
+                <span>الإدارة - العيادة</span>
+                <span>7:48</span>
+                <span>6/7</span>
+            </div>
+
+            <div class="history-row">
+                <span>دورة المياه</span>
+                <span>8:30</span>
+                <span>6/15</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function changeTheme(mode){
+    document.body.classList.toggle('dark-mode', mode === 'dark');
+
+    document.getElementById('light-opt').classList.toggle('active-theme', mode === 'light');
+    document.getElementById('dark-opt').classList.toggle('active-theme', mode === 'dark');
+}
+
+function toggleEdit(){
+    const display = document.getElementById('class-display');
+    const input = document.getElementById('class-input');
+    const btn = document.getElementById('action-btn');
+
+    if(input.style.display === 'none' || input.style.display === ''){
+        input.value = display.innerText;
+        display.style.display = 'none';
+        input.style.display = 'inline-block';
+        btn.innerText = 'حفظ';
+    } else {
+        display.innerText = input.value;
+        display.style.display = 'inline-block';
+        input.style.display = 'none';
+        btn.innerText = 'تغيير';
+    }
+}
+</script>
+
+</body>
+</html>

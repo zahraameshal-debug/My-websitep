@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام الحمامات</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial;
+  background:#f2f2f7;
+}
+
+.page{
+  display:none;
+  max-width:450px;
+  margin:20px auto;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.active{ display:block; }
+
+.title{
+  background:#2c3e50;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+}
+
+.content{
+  padding:15px;
+}
+
+.btn{
+  width:100%;
+  padding:15px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:12px;
+  background:#eef2f7;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.btn-main{
+  background:#2c3e50;
+  color:white;
+}
+
+
+.card{
+  background:#f5f5f5;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:15px;
+  text-align:right;
+  font-weight:bold;
+  color:#2c3e50;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="home" class="page active">
+
+  <div class="title">الحمامات</div>
+
+  <div class="content">
+
+    <button class="btn">حمام الطابق السفلي</button>
+    <button class="btn">حمام الدور الأول</button>
+
+    <button class="btn btn-main" onclick="openToilet2()">
+      حمام الدور الثاني
+    </button>
+
+  </div>
+</div>
+
+
+<div id="status" class="page">
+
+  <div class="title">حالة الحمام</div>
+
+  <div class="content">
+
+    <div class="card">
+      الحالة: شاغر 🟢<br>
+      وقت الانتظار: 5 - 15 دقيقة<br>
+      ملاحظة: الحمام متاح حالياً
+    </div>
+
+    <button class="btn btn-main" onclick="goSurvey()">
+      متابعة الحجز
+    </button>
+
+    <button class="btn" onclick="backHome()">
+      رجوع
+    </button>
+
+  </div>
+</div>
+
+
+<div id="survey" class="page">
+
+  <div class="title">الاستبانة</div>
+
+  <div class="content">
+
+    <input id="name" placeholder="الاسم">
+    <input id="reason" placeholder="سبب الاستخدام">
+
+    <button class="btn btn-main" onclick="goBooking()">
+      تأكيد الحجز
+    </button>
+
+  </div>
+</div>
+
+
+<div id="booking" class="page">
+
+  <div class="title">تم الحجز</div>
+
+  <div class="content">
+
+    <div class="card" id="result"></div>
+
+    <button class="btn btn-main" onclick="location.href='1.html'">
+      رجوع للرئيسية
+    </button>
+
+  </div>
+</div>
+
+<script>
+
+function show(page){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(page).classList.add('active');
+}
+
+function openToilet2(){
+  show('status');
+}
+
+function goSurvey(){
+  show('survey');
+}
+
+function backHome(){
+  show('home');
+}
+
+function goBooking(){
+
+  const name = document.getElementById('name').value;
+  const reason = document.getElementById('reason').value;
+
+  show('booking');
+
+  document.getElementById('result').innerHTML = `
+    الاسم: ${name || "غير محدد"}<br>
+    السبب: ${reason || "غير محدد"}<br>
+    الحالة: تم الحجز بنجاح ✅
+  `;
+}
+
+</script>
+
+</body>
+</html>

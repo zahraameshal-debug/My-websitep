@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>احجزني</title>
+
+<style>
+:root{
+    --primary:#2c3e50;
+    --bg:#f4f6f9;
+    --card:#fff;
+    --btn:#e0e6ed;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma;
+    background:var(--bg);
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    margin:0 auto;
+    min-height:100vh;
+    background:var(--card);
+    padding:25px;
+    box-sizing:border-box;
+}
+
+.title{
+    background:var(--primary);
+    color:#fff;
+    padding:12px;
+    border-radius:15px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.sub{
+    color:#666;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:15px;
+    border:none;
+    background:var(--btn);
+    cursor:pointer;
+}
+
+.back{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:15px;
+    background:var(--primary);
+    color:#fff;
+    cursor:pointer;
+}
+
+.hidden{display:none;}
+</style>
+
+</head>
+
+<body>
+
+
+<div id="p1" class="card">
+<div class="title">الحجوزات</div>
+<div>
+<button class="back" onclick="location.href='admens.html'">
+الإدارة
+</button>
+<button class="back" onclick="location.href='ba.html'">
+دورة المياه
+</button>
+<button class="back" onclick="location.href='emrgnse.html'">
+الطوارئ
+</button>
+
+<button class="btn" onclick="go(2)">المعامل</button>
+   
+</div>
+
+<button class="btn">المقصف</button>
+</div>
+
+
+<div id="p2" class="card hidden">
+<div class="title">المعامل</div>
+
+<button class="btn" onclick="go(3)">معمل الحاسب</button>
+<button class="btn">معمل الكيمياء</button>
+<button class="btn">معمل الأحياء</button>
+
+<button class="back" onclick="go(1)">رجوع</button>
+</div>
+
+
+<div id="p3" class="card hidden">
+<div class="title">معمل الحاسب</div>
+
+<div class="sub">الحالة: شاغر</div>
+
+
+<button class="btn" onclick="go(4)">حجز الآن</button>
+
+<button class="back" onclick="go(2)">رجوع</button>
+</div>
+
+
+<div id="p4" class="card hidden">
+<div class="title">استبانة الحجز</div>
+
+<input class="btn" placeholder="الاسم">
+<input class="btn" placeholder="سبب الحجز">
+
+<button class="btn" onclick="go(5)">حجز</button>
+
+<button class="back" onclick="go(3)">رجوع</button>
+</div>
+
+
+<div id="p5" class="card hidden">
+<div class="title">تم الحجز</div>
+
+<div class="sub">تم تأكيد الحجز بنجاح ✅</div>
+
+<button class="btn" onclick="go(1)">رجوع للحجوزات</button>
+<button class="back" onclick="location.href='1.html'">
+الصفحة الرئيسية
+</button>
+</div>
+
+<script>
+function go(p){
+document.getElementById("p1").classList.add("hidden");
+document.getElementById("p2").classList.add("hidden");
+document.getElementById("p3").classList.add("hidden");
+document.getElementById("p4").classList.add("hidden");
+document.getElementById("p5").classList.add("hidden");
+
+document.getElementById("p"+p).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>

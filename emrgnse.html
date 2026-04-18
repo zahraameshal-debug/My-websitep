@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الطوارئ</title>
+
+<style>
+:root {
+    --primary-blue: #2c3e50;
+    --light-background: #f4f6f9;
+    --text-color: #333;
+}
+
+
+body.emergency-page{
+    margin:0;
+    font-family: Arial;
+    background-color: var(--light-background);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding:20px 0;
+}
+
+
+.card{
+    background:#fff;
+    width:90%;
+    max-width:420px;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+
+.main-title{
+    background:var(--primary-blue);
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    border-radius:20px;
+    margin:20px 0;
+    font-size:18px;
+}
+
+
+.option-btn{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+    color:var(--text-color);
+}
+
+.option-btn:hover{
+    border-color:var(--primary-blue);
+    transform:scale(1.02);
+}
+
+
+.back-btn{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:var(--primary-blue);
+    color:#fff;
+    border:none;
+    border-radius:15px;
+    font-size:15px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body class="emergency-page">
+
+<div class="card">
+
+    <div class="card-header">
+        <span>الطوارئ</span>
+        <span>⋯</span>
+    </div>
+
+    <div class="main-title">
+        خدمات الطوارئ
+    </div>
+
+    <button class="option-btn">اتصال بالإدارة</button>
+    <button class="option-btn">بلاغ طارئ</button>
+    <button class="option-btn">طلب مساعدة</button>
+
+    
+    <button class="back-btn" onclick="location.href='1.html'">
+        رجوع للصفحة الرئيسية
+    </button>
+
+</div>
+
+</body>
+</html>
